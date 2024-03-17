@@ -1,0 +1,88 @@
+// structure of a method definition 
+// R_T C_N::M_N(parameters ....) { method body }
+
+// CSE225L_3B_Codes
+
+#include <iostream>
+using namespace std;
+
+// declaration file - Complex.h 
+class Complex {
+    public:
+        Complex();
+        Complex(double, double);
+        // Complex add(Complex);
+        // Complex multiply(Complex);
+        // bool notEqual(Complex);
+        Complex operator+(Complex);
+        Complex operator*(Complex);
+        bool operator!=(Complex);
+        void Print();
+    
+    private:
+        double Real, Imaginary;
+};
+
+// definition file - Complex.cpp
+Complex::Complex() {
+    Real = 0;
+    Imaginary = 0;
+}
+Complex::Complex(double r, double i) {
+    Real = r;
+    Imaginary = i;
+}
+// Complex Complex::add(Complex a) {
+Complex Complex::operator+(Complex a) {
+    Complex t;
+    t.Real = Real + a.Real;
+    t.Imaginary = Imaginary + a.Imaginary;
+    return t;
+}
+// Complex Complex::multiply(Complex a) {
+Complex Complex::operator*(Complex a) {
+    Complex t;
+    t.Real = (Real * a.Real) - (Imaginary * a.Imaginary);
+    t.Imaginary = (Real * a.Imaginary) + (Imaginary * a.Real);
+    return t;
+}
+// bool Complex::notEqual(Complex a) {
+bool Complex::operator!=(Complex a) {
+    bool result = (Real != a.Real) || (Imaginary != a.Imaginary);
+    return result;
+}
+    
+void Complex::Print() {
+    cout << "rp: " << Real << ", ip: " << Imaginary << endl;
+}
+
+// driver file - main.cpp
+int main() {
+    Complex c1(2, 3);
+    Complex c2(2, 3);
+    
+    cout << "add result: " << endl;
+    // Complex ct1 = c1.add(c2);   // normal version
+    Complex ct1 = c1 + c2;   // overloaded version
+    ct1.Print();
+    
+    cout << "multiply result: " << endl;
+    // Complex ct2 = c1.multiply(c2);   // normal version
+    Complex ct2 = c1 * c2;   // overloaded version
+    ct2.Print();
+
+    cout << "not equal result: ";
+    // bool result = c1.notEqual(c2);   // normal version
+    bool result = c1 != c2;     // overloaded version
+    
+    if(result == true) {
+        cout << "true" << endl;
+    } else {
+        cout << "false" << endl;
+    }
+    
+    // not possible to use ternary operator directly for printing
+    // cout << (result == true) ? "True" : "False" << endl;
+
+    return 0;
+}

@@ -1,0 +1,271 @@
+#include <iostream>
+using namespace std;
+
+class FullQueue
+{
+
+};
+
+class EmptyQueue
+{
+
+};
+
+template <class ItemType>
+class QueType{
+    struct NodeType{
+        ItemType info;
+        NodeType* next;
+    };
+public:
+    QueType();
+    ~QueType();
+    void MakeEmpty();
+    void Enqueue(ItemType);
+    void Dequeue(ItemType&);
+    bool IsEmpty();
+    bool IsFull();
+private:
+    NodeType *front, *rear;
+};
+
+template <class ItemType>
+QueType<ItemType>::QueType(){
+    front = NULL;
+    rear = NULL;
+}
+
+template <class ItemType>
+bool QueType<ItemType>::IsEmpty(){
+    return (front == NULL);
+}
+
+template<class ItemType>
+bool QueType<ItemType>::IsFull(){
+    NodeType* location;
+    try{
+        location = new NodeType;
+        delete location;
+        return false;
+    }
+    catch(bad_alloc& exception){
+        return true;
+    }
+}
+
+template <class ItemType>
+void QueType<ItemType>::Enqueue(ItemType newItem){
+    if(IsFull())
+        throw FullQueue();
+    else{
+        NodeType* newNode;
+        newNode = new NodeType;
+        newNode->info = newItem;
+        newNode->next = NULL;
+        if (rear == NULL)
+            front = newNode;
+        else
+            rear->next = newNode;
+        rear = newNode;
+    }
+}
+
+template <class ItemType>
+void QueType<ItemType>::Dequeue(ItemType& item){
+    if(IsEmpty())
+        throw EmptyQueue();
+    else{
+        NodeType* tempPtr;
+        tempPtr = front;
+        item = front->info;
+        front = front->next;
+        if (front == NULL)
+            rear = NULL;
+        delete tempPtr;
+    }
+}
+
+template <class ItemType>
+void QueType<ItemType>::MakeEmpty(){
+    NodeType* tempPtr;
+    while(front != NULL){
+        tempPtr = front;
+        front = front->next;
+        delete tempPtr;
+    }
+    rear = NULL;
+}
+
+template <class ItemType>
+QueType<ItemType>::~QueType(){
+    MakeEmpty();
+}
+
+
+//driver main file
+int main()
+{
+    int item, i;
+
+    QueType<int> queueList;
+
+    cout << "Max Size declare is not possible." << endl;
+
+    //checking queue is empty or not
+    cout << "Queue is empty or not: ";
+    if(queueList.IsEmpty()){
+        cout << "Queue is Empty." << endl << endl;
+    }
+    else{
+        cout << "Queue is not Empty." << endl << endl;
+    }
+
+    //enqueue 4 items
+    cout << "Enter four item for EnQueue: ";
+    for(i = 0; i < 4; i++){
+        cin >> item;
+        try{
+            queueList.Enqueue(item);
+        }
+        catch(FullQueue){
+            cout << "Queue is overflow.";
+        }
+    }
+    cout << endl;
+
+    //checking queue is empty or not
+    cout << "Queue is empty or not: ";
+    if(queueList.IsEmpty()){
+        cout << "Queue is Empty." << endl << endl;
+    }
+    else{
+        cout << "Queue is not Empty." << endl << endl;
+    }
+
+    //checking queue is full or not
+    cout << "Queue is empty or not: ";
+    if(queueList.IsFull()){
+        cout << "Queue is Full." << endl << endl;
+    }
+    else{
+        cout << "Queue is not Full." << endl << endl;
+    }
+
+    //enqueue another item
+    cout << "Enter another item for enqueue: ";
+    cin >> item;
+    try{
+        queueList.Enqueue(item);
+    }
+    catch(FullQueue){
+        cout << "Queue is overflow.";
+    }
+    cout << endl;
+
+    //printing item
+    cout << "Printing QueueList in inputs order: ";
+    QueType<int> tempQueue;
+    for(i = 0; !queueList.IsEmpty(); i++){
+        queueList.Dequeue(item);
+        tempQueue.Enqueue(item);
+    }
+    for(i = 0; !tempQueue.IsEmpty(); i++){
+        tempQueue.Dequeue(item);
+        cout << item << " ";
+        queueList.Enqueue(item);
+    }
+    cout << endl << endl;
+
+    //checking queue is full or not
+    cout << "Queue is empty or not: ";
+    if(queueList.IsFull()){
+        cout << "Queue is Full." << endl << endl;
+    }
+    else{
+        cout << "Queue is not Full." << endl << endl;
+    }
+
+    //enqueue another item
+    cout << "Enter another item for enqueue: ";
+    cin >> item;
+
+    try{
+        queueList.Enqueue(item);
+    }
+    catch(FullQueue){
+        cout << "Queue is overflow.";
+    }
+
+    cout << endl;
+
+    //Dequeue two items
+    try{
+        queueList.Dequeue(item);
+        queueList.Dequeue(item);
+    }
+    catch(EmptyQueue){
+        cout << "Queue Underflow" << endl;
+    }
+
+    //printing item
+    cout << "Printing QueueList in inputs order: ";
+    for(i = 0; !queueList.IsEmpty(); i++){
+        queueList.Dequeue(item);
+        tempQueue.Enqueue(item);
+    }
+    for(i = 0; !tempQueue.IsEmpty(); i++){
+        tempQueue.Dequeue(item);
+        cout << item << " ";
+        queueList.Enqueue(item);
+    }
+    cout << endl << endl;
+
+    //Dequeue three items
+    try{
+        queueList.Dequeue(item);
+        queueList.Dequeue(item);
+        queueList.Dequeue(item);
+    }
+    catch(EmptyQueue){
+        cout << "Queue Underflow" << endl;
+    }
+
+    //checking queue is empty or not
+    cout << "Queue is empty or not: ";
+    if(queueList.IsEmpty()){
+        cout << "Queue is Empty." << endl << endl;
+    }
+    else{
+        cout << "Queue is not Empty." << endl << endl;
+    }
+
+    //Dequeue another items
+    try{
+        queueList.Dequeue(item);
+    }
+    catch(EmptyQueue){
+        cout << "Queue Underflow" << endl;
+    }
+
+    //checking queue is empty or not
+    cout << "Queue is empty or not: ";
+    if(queueList.IsEmpty()){
+        cout << "Queue is Empty." << endl << endl;
+    }
+    else{
+        cout << "Queue is not Empty." << endl << endl;
+    }
+
+
+    cout << "Trying to Dequeue another item: ";
+    //Dequeue another items
+    try{
+        queueList.Dequeue(item);
+    }
+    catch(EmptyQueue){
+        cout << "Queue Underflow" << endl;
+    }
+
+    return 0;
+}
+

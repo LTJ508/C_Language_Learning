@@ -1,0 +1,191 @@
+#ifndef STACKTYPE_H_INCLUDED
+#define STACKTYPE_H_INCLUDED
+
+#include <iostream>
+using namespace std;
+
+class FullStack{
+
+};
+
+class EmptyStack{
+
+};
+
+template <class ItemType>
+class StackType{
+    struct NodeType{
+        ItemType info;
+        NodeType* next;
+    };
+public:
+    StackType();
+    ~StackType();
+    void Push(ItemType);
+    void Pop();
+    ItemType Top();
+    bool IsEmpty();
+    bool IsFull();
+private:
+    NodeType* topPtr;
+};
+
+#endif // STACKTYPE_H_INCLUDED
+
+
+//Implimentation file
+
+#include "stacktype.h"
+
+template <class ItemType>
+StackType<ItemType>::StackType(){
+    topPtr = NULL;
+}
+
+template <class ItemType>
+bool StackType<ItemType>::IsEmpty(){
+    return (topPtr == NULL);
+}
+
+template <class ItemType>
+ItemType StackType<ItemType>::Top(){
+    if(IsEmpty())
+        throw EmptyStack();
+    else
+        return topPtr->info;
+}
+
+template <class ItemType>
+bool StackType<ItemType>::IsFull(){
+    NodeType* location;
+    try{
+        location = new NodeType;
+        delete location;
+        return false;
+    }
+    catch(bad_alloc& exception){
+        return true;
+    }
+}
+
+template <class ItemType>
+void StackType<ItemType>::Push(ItemType newItem){
+    if(IsFull())
+        throw FullStack();
+    else{
+        NodeType* location;
+        location = new NodeType;
+        location->info = newItem;
+        location->next = topPtr;
+        topPtr = location;
+    }
+}
+
+template <class ItemType>
+void StackType<ItemType>::Pop(){
+    if(IsEmpty())
+        throw EmptyStack();
+    else{
+        NodeType* tempPtr;
+        tempPtr = topPtr;
+        topPtr = topPtr->next;
+        delete tempPtr;
+    }
+}
+
+template <class ItemType>
+StackType<ItemType>::~StackType(){
+    NodeType* tempPtr;
+    while(topPtr != NULL) {
+        tempPtr = topPtr;
+        topPtr = topPtr->next;
+        delete tempPtr;
+    }
+}
+
+
+//main driver file
+#include "stacktype.h"
+int main()
+{
+    StackType<int> integerStack;
+    int i, item;
+    char ch;
+
+    cout << "Is the stack is empty: ";
+    if(integerStack.IsEmpty()){
+        cout << "Stack is Empty" << endl;
+    }
+    else{
+        cout << "Stack is not Empty" << endl;
+    }
+
+    cout <<"\nEnter 4 item for Push with space: ";
+    for(i = 0; i < 4; i++){
+        cin >> item;
+         integerStack.Push(item);
+    }
+
+    cout << "\nIs the stack is empty: ";
+    if(integerStack.IsEmpty()){
+        cout << "Stack is Empty" << endl;
+    }
+    else{
+        cout << "Stack is not Empty" << endl;
+    }
+
+    cout << "\nIs the stack is Full: ";
+    if(integerStack.IsFull()){
+        cout << "Stack is Full" << endl;
+    }
+    else{
+        cout << "Stack is not Full" << endl;
+    }
+
+    //printing values
+    cout << "List: ";
+    StackType<int> tempStack;
+
+    for(int i = 0; !integerStack.IsEmpty(); i++){
+        tempStack.Push(integerStack.Top());
+        integerStack.Pop();
+    }
+    for(int i = 0; !tempStack.IsEmpty(); i++){
+        cout << tempStack.Top() << " ";
+        integerStack.Push(tempStack.Top());
+        tempStack.Pop();
+    }
+    cout << endl << endl;
+
+    cout << "Enter another item for push: ";
+    cin >> item;
+    integerStack.Push(item);
+
+     //printing values
+    cout << "List: ";
+    for(int i = 0; !integerStack.IsEmpty(); i++){
+        tempStack.Push(integerStack.Top());
+        integerStack.Pop();
+    }
+    for(int i = 0; !tempStack.IsEmpty(); i++){
+        cout << tempStack.Top() << " ";
+        integerStack.Push(tempStack.Top());
+        tempStack.Pop();
+    }
+    cout << endl << endl;
+
+    cout << "\nIs the stack is Full: ";
+    if(integerStack.IsFull()){
+        cout << "Stack is Full" << endl;
+    }
+    else{
+        cout << "Stack is not Full\n" << endl;
+    }
+
+    integerStack.Pop();
+    integerStack.Pop();
+
+    cout << "After pop 2 items, top item is: " << integerStack.Top() << endl << endl;
+
+    return 0;
+}

@@ -1,0 +1,115 @@
+// lab1_codes
+
+Ex-1: Array (1d) 
+#include <iostream>
+using namespace std;
+
+int main() {
+    // declare an array 
+    int n = 3;
+    int nums[n];
+    
+    // input array elements
+    cout << "Input array elements: " << endl;
+    for(int i=0; i<n; i++) {
+        cin >> nums[i]; // access each element
+    }
+    
+    // print array elements
+    cout << "Print array elements: " << endl;
+    for(int i=0; i<n; i++) {
+        cout << nums[i] << " "; // access each element
+    }
+
+    return 0;
+}
+
+Ex-2: Array (2d - mxm)
+#include <iostream>
+using namespace std;
+
+int main() {
+    // declare an array 
+    int m = 2, n = 2;
+    int nums[m][n];
+    
+    // input array elements
+    cout << "matrix size (" << m << " x " << n << "): " << endl;
+    cout << "Input matrix elements: " << endl;
+    for(int r=0; r<m; r++) {
+        for(int c=0; c<n; c++) {
+            cin >> nums[r][c]; // access each element
+        }
+    }
+    
+    // print array elements
+    cout << "Print matrix elements: " << endl;
+    for(int r=0; r<m; r++) {
+        for(int c=0; c<n; c++) {
+            cout << nums[r][c] << " "; // access each element
+        }
+        cout << endl;
+    }
+    return 0;
+}
+
+// Ex-3: pointers (basic)
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num = 5;
+    cout << "address of num: " << &num << endl;
+    cout << "value of num: " << num << endl;
+    
+    int* numPtr = NULL; // num_ptr 
+    numPtr = &num;
+    
+    // & - reference operator, * - dereference operator
+    cout << "address of numPtr: " << numPtr << endl;
+    cout << "value of numPtr: " << *numPtr << endl;
+    
+    return 0;
+}
+
+lab1 - task1:
+#include <iostream>
+using namespace std;
+
+int main() {
+    // ask the size 
+    int n;
+    cout << "Enter size of array, n: ";
+    cin >> n;
+    
+    // dynamically allocate memory for array
+    int* arr = NULL;
+    arr = new int[n];
+    //  int* arr = new int[n];  // also ok
+    
+    // ask the user for each element input
+    cout << "Take " << n << " user inputs: " << endl;
+    for(int i=0; i<n; i++) {
+        cin >> arr[i];  // arr[i] = *(arr + i)
+    }
+    
+    // print the array elements
+    cout << "Print " << n << " elements: " << endl;
+    for(int i=0; i<n; i++) {
+        cout << arr[i] << " ";  // arr[i] = *(arr + i)
+    }
+    
+    // deallocate memory cells
+    delete[] arr;
+    arr = NULL; // optional step 
+    
+    return 0;
+}
+
+
+
+
+
+
+
+

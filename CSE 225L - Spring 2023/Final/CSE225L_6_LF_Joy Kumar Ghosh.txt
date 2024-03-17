@@ -1,0 +1,99 @@
+Task 01
+===========================
+int main()
+{
+    QueType<int> queue01;
+    QueType<int> queue02;
+    int item;
+    int item2;
+
+    cout << "Enter 6 item in the 1st queue: "
+    for(int i = 0; i < 6; i++){
+        cin >> item;
+        queue01.Enqueue(item);
+    }
+
+    cout << "Enter 6 item in the 2nd queue: "
+    for(int i = 0; i < 6; i++){
+        cin >> item;
+        queue02.Enqueue(item);
+    }
+
+    bool identical = true;
+    for(i = 0; i < 6; i++){
+        queue01.Dequeue(item);
+        queue02.Dequeue(item2);
+
+        if(item != item2){
+            identical = false;
+            break;
+        }
+    }
+
+    if(identical){
+        cout << "Identical";
+    }
+    else{
+        cout << "not Identical";
+    }
+
+    return 0;
+}
+
+task 02
+=======================================
+
+//member function declaration
+bool IsSimilarTrees(TreeNode<ItemType>* , TreeNode<ItemType>*);
+
+//implementation
+template <class ItemType>
+bool TreeNode<ItemType>::IsSimilarTrees(TreeNode<ItemType>* tree1, TreeNode<ItemType>* tree2)
+{
+    if(tree1.LengthIS() I!=  tree2.LengthIs()){
+        return false;
+    }
+    IsSimilarTrees(tree1 -> left, tree2 -> left);
+    IsSimilarTrees(tree1 -> right, tree2 -> right);
+}
+
+
+//Driver File
+
+int main()
+{
+    TreeNode<int> tree1;
+    TreeNode<int> tree2;
+    int item;
+
+    for(int i = 0; i < 5; i++) {
+        cin >> item;
+        tree1.InsertItem(item);
+    }
+
+    for(int i = 0; i < 5; i++) {
+        cin >> item;
+        tree2.InsertItem(item);
+    }
+
+    if(IsSimilarTree(tree1, tree2)) {
+        cout << "They have the same Shape.";
+    } else {
+        cout << "They don't have the same Shape.";
+    }
+
+    return 0;
+
+}
+
+Task 03
+=============================
+[0] Alaska -> 4|Oregon
+[1] California
+[2] Hawaii -> 0|Alaska -> 1|California -> 3|New York -> 5|Texas
+[3] New York
+[4] Oregon
+[5] Texas -> 2|Hawaii -> 6|Vemont
+[6] Vemont -> 0|Alaska -> 1|California
+
+

@@ -1,0 +1,92 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // ask size from user
+    int m, n;
+    cout << "Enter row size, m: ";
+    cin >> m;
+    cout << "Enter column size, n: ";
+    cin >> n;
+    
+    // dynamically allocate 2D list 
+    int **arr = NULL;
+    arr = new int*[m];  // allocate rows
+    // int **arr = new int*[m];  // also ok
+    
+    // allocate cols for each row
+    for(int i=0; i<m; i++) {
+        arr[i] = new int[n];    
+    }
+    
+    // take user input for list 
+    cout << "Enter " << (m*n) << " elements: " << endl;
+    for(int i=0; i<m; i++) {
+        for(int j=0; j<n; j++) {
+            cin >> arr[i][j];
+        }
+    }
+    
+    // print the list 
+    cout << "Print " << (m*n) << " elements: " << endl;
+    for(int i=0; i<m; i++) {
+        for(int j=0; j<n; j++) {
+            cout << arr[i][j] << " ";
+        }
+        cout << endl;
+    }
+    
+    // deallocate memory spaces
+    for(int i=0; i<m; i++) {
+        delete[] arr[i];
+    }
+    delete[] arr;
+
+    return 0;
+}
+
+// Lab-2: task 2
+// add these codes in task 1
+
+// declaration file - DynArr.h
+class DynArr {
+	private:
+		.........
+	public:
+		.........
+		void allocate(int);
+};
+
+// definition file - DynArr.cpp
+void DynArr::allocate(int s) {
+	// deallocate previours memory spaces
+
+	// re-allocate list with a new size
+
+	// update size property
+}
+
+// driver file - main.cpp
+int main() {
+	DynArr arr1;
+	DynArr arr2(5);
+
+	// reallocate list 1
+	arr1.allocate(3);
+
+	// reallocate list 2
+	arr2.allocate(3);
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+

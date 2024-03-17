@@ -1,0 +1,61 @@
+// task - 1
+
+#include <iostream>
+using namespace std;
+
+// declaration file - DynArr.h 
+class DynArr {
+    private:
+        int *data;
+        int size;
+ 
+    public:
+        DynArr();
+        DynArr(int);
+        ~DynArr();
+        void setValue(int, int);
+        int getValue(int);
+};
+
+// definition file - DynArr.cpp 
+DynArr::DynArr() {
+    data = NULL;
+    size = 0;
+}
+DynArr::DynArr(int s) {
+    data = new int[s];
+    size = s;
+}
+DynArr::~DynArr() {
+    delete [] data;
+}
+int DynArr::getValue(int index) {
+    return data[index];
+}
+void DynArr::setValue(int index, int value) {
+    data[index] = value;
+}
+
+// driver file - main.cpp
+int main() {
+    // create objects
+    DynArr arr1;    // object 1 
+    DynArr arr2(5);    // object 2
+    
+    // take 5 inputs
+    cout << "Enter 5 elements: " << endl;
+    int x;
+    for(int i=0; i<5; i++) {
+        cin >> x;
+        
+        arr2.setValue(i, x);
+    }
+    
+    // print all elements
+    cout << "Elements in arr2 are: " << endl;
+    for(int i=0; i<5; i++) {
+        cout << arr2.getValue(i) << " ";
+    }
+
+    return 0;
+}

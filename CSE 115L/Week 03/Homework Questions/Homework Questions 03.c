@@ -1,3 +1,5 @@
+/*3.	Read the lengths of base and height of a right angle triangle. Then compute the length of its hypotenuse using Pythagorean theorem.*/
+
 #include <stdio.h>
 #include <math.h>
 

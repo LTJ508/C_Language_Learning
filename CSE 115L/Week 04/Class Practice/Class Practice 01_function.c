@@ -1,3 +1,5 @@
+/*C program to find maximum between two numbers:*/
+
 #include <stdio.h>
 
 int MAXIMUM (int n1, int n2);

@@ -1,3 +1,5 @@
+/*2.	Compute the volume and surface area of a cone. Read the radius and height of the cone from user.*/
+
 #include <stdio.h>
 #include <math.h>
 #define PI 3.1416

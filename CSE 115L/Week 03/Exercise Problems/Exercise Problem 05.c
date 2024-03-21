@@ -1,3 +1,5 @@
+/*5.	Find the angle of a segment in a circle; read the arc length and radius from user.*/
+
 #include <stdio.h>
 #define PI 3.1416
 

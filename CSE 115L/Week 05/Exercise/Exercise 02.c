@@ -1,3 +1,5 @@
+/*2.	Find the maximum between two numbers using switch case.*/
+
 #include <stdio.h>
 
 int main()

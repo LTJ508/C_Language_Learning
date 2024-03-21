@@ -1,3 +1,5 @@
+/*C program to find maximum among three numbers:*/
+
 #include <stdio.h>
 
 int main()

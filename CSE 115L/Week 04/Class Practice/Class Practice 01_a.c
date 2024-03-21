@@ -1,3 +1,5 @@
+/*Write a C program to find minimum between two numbers*/
+
 #include <stdio.h>
 
 int main()

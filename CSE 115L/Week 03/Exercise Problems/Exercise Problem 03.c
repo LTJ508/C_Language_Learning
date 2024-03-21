@@ -1,3 +1,5 @@
+/*3.	Compute the volume of a sphere; read the radius from user.*/
+
 #include <stdio.h>
 #define PI 3.1416
 

@@ -1,3 +1,5 @@
+/*C programs to demonstrate bitwise operators:*/
+
 #include <stdio.h>
 
 int main()

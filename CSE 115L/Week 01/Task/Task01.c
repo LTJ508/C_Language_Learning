@@ -1,3 +1,17 @@
+/*Write a program that asks the user to enter two numbers, obtains the two numbers from the user and prints the sum, product, difference, quotient and remainder of the two numbers.
+
+Input:
+Insert first number: 10
+Insert second number: 5	
+
+Output:
+Sum = 15
+Product = 50
+Difference = 5
+Quotient = 2
+Remainder = 0
+*/
+
 #include <stdio.h>
 
 int main()

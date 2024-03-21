@@ -1,3 +1,5 @@
+/*2.	Read two integer numbers m, n from user. Compute the value of m*2n as well as the value of m <<n. Do you see a pattern in the result? Now compute the value of m/2n as well as the value of m >>n. Do you see a pattern?*/
+
 #include <stdio.h>
 #include <math.h>
 

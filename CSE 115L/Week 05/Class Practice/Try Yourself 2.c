@@ -1,3 +1,5 @@
+/*Write a C program to check whether an input alphabet is a vowel or a consonant using switch case (assume that the input is an English letter).*/
+
 #include <stdio.h>
 
 int main()

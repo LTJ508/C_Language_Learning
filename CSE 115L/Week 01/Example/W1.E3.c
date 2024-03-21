@@ -1,3 +1,5 @@
+/*: Data types and their size in C.*/
+
 #include <stdio.h>
 
 int main()

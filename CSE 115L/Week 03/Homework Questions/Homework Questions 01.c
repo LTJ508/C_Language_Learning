@@ -1,3 +1,5 @@
+/*1.	Compute the area of a (a) trapezoid and (b) parallelogram. Read necessary inputs from user.*/
+
 #include <stdio.h>
 
 int main()

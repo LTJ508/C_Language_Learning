@@ -1,3 +1,5 @@
+/*C program to check Leap Year (a year is a leap year if – (i) it is divisible by 4 but not divisible by 100 OR (ii) it is divisible by 400):*/
+
 #include <stdio.h>
 
 int main()

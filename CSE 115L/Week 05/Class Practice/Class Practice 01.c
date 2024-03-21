@@ -1,3 +1,5 @@
+/*1. C Program to check whether the input is a character, digit or a special character.*/
+
 #include <stdio.h>
 
 int main()

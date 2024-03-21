@@ -1,3 +1,5 @@
+/*C program to check whether an input is an odd number or an even number using switch-case*/
+
 #include <stdio.h>
 
 int main()

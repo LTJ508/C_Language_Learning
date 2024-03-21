@@ -1,3 +1,14 @@
+/*Task 2.  Write a program that reads in 3 numbers and prints their average.
+Input:
+Insert first number: 3
+Insert second number: 8
+Insert third number: 2
+
+Output:
+The average is: 4.3
+
+*/
+
 #include <stdio.h>
 
 int main()

@@ -1,3 +1,5 @@
+/*4.	Compute quotient and remainder when you divide x by y (read x, y from user). Also, compute quotient and remainder when you divide y by x. Print all these four results*/
+
 #include <stdio.h>
 
 int main()

@@ -1,3 +1,5 @@
+/*1.	Compute the value of 5x3-4x2+√(x)+3; read x from user*/
+
 #include <stdio.h>
 #include <math.h>
 

@@ -1,3 +1,17 @@
+/*4.	Write a C program to count total number of notes in given amount.
+Tentative Input/Output (bold ones are user inputs):
+Enter amount: 1176 
+Total number of notes: 
+500: 2
+100: 1 
+50: 1
+20: 1
+10: 0
+5: 1
+2: 0
+1: 1
+*/
+
 #include <stdio.h>
 
 int main()

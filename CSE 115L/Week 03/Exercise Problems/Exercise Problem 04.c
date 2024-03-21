@@ -1,3 +1,5 @@
+/*4.	Read the co-ordinates of two points (x1,y1) and (x2,y2) from user. Compute the midpoints of these two points and print it up to 2 decimal points.*/
+
 #include <stdio.h>
 
 int main()

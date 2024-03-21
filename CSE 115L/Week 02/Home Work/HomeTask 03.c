@@ -1,3 +1,7 @@
+/*3.	Find the volume of a (a) cube and (b) cylinder
+Note: Read necessary inputs from user e.g. height and diameter of the cylinder for (a)
+*/
+
 #include <stdio.h>
 #include <math.h>
 

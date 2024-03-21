@@ -1,3 +1,5 @@
+/*5.	Read a temperature in Celsius and print its Fahrenheit equivalent (Hint: C=(F-32)*5/9)*/
+
 #include <stdio.h>
 
 int main()

@@ -1,3 +1,9 @@
+/*Write a program that prints:
+
+North South University
+Hello class of cse115L!! Welcome to NSU.
+*/
+
 #include <Stdio.h>
 #include <stdlib.h>
 

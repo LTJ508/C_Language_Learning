@@ -1,3 +1,5 @@
+/*Write a program that prompts the user to insert an integer value, a decimal number and his name and print the inserted value as output.*/
+
 #include<stdio.h>
 
 

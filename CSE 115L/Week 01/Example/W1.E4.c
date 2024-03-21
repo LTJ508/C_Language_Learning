@@ -1,3 +1,5 @@
+/*Write a program that reads in the radius of a circle and prints the circle’s diameter, circumference and area.*/
+
 #include <stdio.h>
 
 int main()
